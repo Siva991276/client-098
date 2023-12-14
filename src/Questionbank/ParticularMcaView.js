@@ -5,14 +5,17 @@ import Sidebar from "../Sidebar";
 import { Pagination } from "antd";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation,useNavigate } from "react-router-dom";
 
 const ParticularMcaView = () => {
+    const navigate = useNavigate();
     const { state } = useLocation();
 	const { subjectId,chapterId,McqId} = state || {}; 
 	const [mcqListData, setMcqListData] = useState([]);
 
-	
+	const gotoMcqUpdate = ()=>{
+        navigate(()=>navigate("/Mcqupdate",{state :{subjectId:subjectId,chapterId:chapterId,McqId:McqId}}))
+    }
 
 	const fetchMcqListData = async () => {
 		const api = `http://localhost:4010/v1/getMCQById/${subjectId}/${chapterId}/${McqId}`
@@ -47,24 +50,25 @@ const ParticularMcaView = () => {
 			closeBtn?.classList.replace("bx-menu-alt-right", "bx-menu");
 		}
 	};
+    
 	
 	return (
 		<div>
 			<div className="container-fluid">
 				<div className="row">
 					{isOpen && (
-						<div className=" col-12 col-md-3 sectioncard121">
+						<div className=" col-12 col-lg-3 col-md-12 sectioncard121">
 							<Sidebar />
 							<ToastContainer/>
 						</div>
 					)}
 					<div
-						className={`my-3 col-12 col-md-${isOpen ? 9 : 12} col-lg-${
+						className={`my-3 col-12 col-md-${isOpen ? 12 : 9} col-lg-${
 							isOpen ? 9 : 12
 						}`}
 					>
-						<div className=" d-lg-block d-none">
-							<i className="fa-solid fa-bars bars" onClick={toggleSidebar}></i>
+						<div className=" ">
+							<i className="fa-solid fa-bars bars d-lg-block d-none" onClick={toggleSidebar}></i>
 							<div className=" row card p-3 m-2">
                                 <div className="col-md-12">
                                     <div className="row">
@@ -74,8 +78,10 @@ const ParticularMcaView = () => {
                                         <div className="col-md-5">
                                             <p>Chapter : {mcqListData?.Chapters}</p>
                                         </div>
-                                        <div className="col-md-4 float-right" style={{float:"right"}}>
-                                            <button className="btn btn-dark"><i class="fa-solid fa-pencil pencile"									
+                                        <div className="col-md-4 float-right mb-2" style={{float:"right"}}>
+                                            <button className="btn btn-dark"
+                                            onClick={()=>navigate("/Mcqupdate",{state :{subjectId:subjectId,chapterId:chapterId,McqId:McqId}})}	><i class="fa-solid fa-pencil pencile"		
+                                            						
 											></i>Edit Question</button>
                                         </div>
                                     </div>

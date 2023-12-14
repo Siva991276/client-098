@@ -16,7 +16,6 @@ import UpdateBatch from "./Batch-Update";
 import SearchOption from "./SearchUser";
 import Dashboard from "./Perfex_Dashboard";
 import Footer from "./FooterSkill";
-
 import Institute from "./Institute";
 import RecentAssessment from "./Recent-Assessment";
 import RecentCourses from "./RecentCourses";
@@ -35,27 +34,32 @@ import Learning from "./LearnData/Learning";
 import Topic from "./LearnData/topic";
 import Content from "./LearnData/content";
 import TextContent from "./LearnData/textcontent";
-import QbSubject from "../src/Questionbank/subject";
-import Chapter from "../src/Questionbank/chapter";
-import CreateQuestion from "../src/Questionbank/CreateQuestion";
-import McqView from "../src/Questionbank/McqView";
-import ParagHome from "../src/Questionbank/ParagHome";
-import ParagView from "../src/Questionbank/paragview";
-import Coding from "../src/Questionbank/coding";
-import Codingview from "../src/Questionbank/codingview";
+import QbSubject from '../src/Questionbank/subject';
+import Chapter from '../src/Questionbank/chapter';
+import CreateQuestion from '../src/Questionbank/CreateQuestion';
+import McqView from '../src/Questionbank/McqView';
+import ParagHome from '../src/Questionbank/ParagHome';
+import ParagView from '../src/Questionbank/paragview';
+import Coding from '../src/Questionbank/coding';
+import Codingview from '../src/Questionbank/codingview';
 import Upload from "./Questionbank/upload";
 import ParagEdit from "./Questionbank/paragEdit";
-import Basic from "./Questionbank/BasicCoding";
-import ParticularMcaView from "./Questionbank/ParticularMcaView";
-import Mcqupdate from "./Questionbank/Mcqupdate";
+import Basic from './Questionbank/BasicCoding';
+import ParticularMcaView from './Questionbank/ParticularMcaView';
+import Mcqupdate from './Questionbank/Mcqupdate';
 import AssignQB from "./Questionbank/AssignQB";
+import Codingupdate from "./Questionbank/codingupdate";
+
+
+
+
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<InstituteLogin />} />
         <Route exact path="/UserLogin" element={<UserLogin />} />
+        <Route exact path="/" element={<InstituteLogin />} />
         <Route exact path="/ForgotPassword" element={<ForgotPassword />} />
         <Route exact path="/PerfexHome" element={<PerfexHome />} />
         <Route exact path="/AdminDashboard" element={<AdminDashboard />} />
@@ -80,7 +84,6 @@ function App() {
         <Route exact path="/Practice" element={<Practice />} />
         <Route exact path="/Blogs" element={<Blogs />} />
         <Route exact path="/JavaProgramming" element={<JavaProgramming />} />
-
         <Route exact path="/LearnPath" element={<LearnPath />} />
         <Route exact path="/Learn" element={<Learn />} />
         <Route exact path="/Learning" element={<Learning />} />
@@ -97,14 +100,11 @@ function App() {
         <Route exact path="/Codingview" element={<Codingview />} />
         <Route exact path="/upload" element={<Upload />} />
         <Route exact path="/ParagEdit" element={<ParagEdit />} />
-        <Route exact path="/Basic" element={<Basic />} />
-        <Route
-          exact
-          path="/ParticularMcaView"
-          element={<ParticularMcaView />}
-        />
-        <Route exact path="/Mcqupdate" element={<Mcqupdate />} />
-        <Route exact path="/AssignQB" element={<AssignQB />} />
+        <Route exact path="/Basic" element={<Basic />} />        
+        <Route exact path="/ParticularMcaView" element={<ParticularMcaView />} />  
+        <Route exact path="/Mcqupdate" element={<Mcqupdate />} /> 
+				<Route exact path="/AssignQB" element={<AssignQB />} />
+				<Route exact path="/codingupdate" element={<Codingupdate />} />
         <Route
           exact
           path="/VideoPage/:VideofolderName"
